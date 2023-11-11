@@ -1,0 +1,92 @@
+@mixin sm {
+	@media (max-width: 574.98px) {
+		@content;
+	}
+}
+@mixin m {
+	@media (max-width: 767.98px) {
+		@content;
+	}
+}
+@mixin t {
+	@media (max-width: 1023.98px) {
+		@content;
+	}
+}
+$container: 1420px;
+
+:root {
+	--bg: #263238;
+	--main-color: #fff;
+	--second-color: #23b123;
+	--transition: 0.3s;
+	--index: calc(1vw + 1vh);
+	--font: "Spartan", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+@function vw($n) {
+	@return calc($n / $container * 170vw);
+}
+
+html {
+	scroll-padding-top: 20px;
+}
+.body {
+	position: relative;
+	overflow-x: clip;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: var(--font);
+	font-size: clamp(14px, vw(18px), 18px);
+	// font-size: calc(var(--index) * 1.5);
+	font-weight: 400;
+	line-height: 1.77;
+	color: var(--main-color);
+	background-color: var(--bg);
+	&.menu-active {
+		overflow-y: hidden;
+		padding-right: 10px;
+	}
+}
+[class*="__container"] {
+	max-width: calc($container + 20px * 2);
+	margin: 0 auto;
+	padding-inline: 20px;
+}
+::-webkit-scrollbar {
+	background-color: transparent;
+	width: 10px;
+	@media (max-width: 767.98px) {
+		width: 5px;
+	}
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: var(--main-color);
+}
+* {
+	// колір повзунка колір смужки прокрутки
+	scrollbar-color: var(--main-color) transporent;
+	scrollbar-width: thin;
+}
+.visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	border: 0 !important;
+	padding: 0 !important;
+	white-space: nowrap !important;
+	clip-path: inset(100%) !important;
+	clip: rect(0 0 0 0) !important;
+	overflow: hidden !important;
+}
+
+.btn {
+}
+.btn-green {
+}
+.burger-btn {
+}
