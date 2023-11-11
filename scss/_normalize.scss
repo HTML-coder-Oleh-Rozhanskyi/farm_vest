@@ -23,6 +23,10 @@ html {
 :where(ul[class]) {
 	list-style: none;
 }
+:where(button):where([class]) {
+	color: inherit;
+	font-size: inherit;
+}
 a {
 	color: inherit;
 	text-decoration: none;

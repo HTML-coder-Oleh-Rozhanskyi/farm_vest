@@ -85,8 +85,20 @@ html {
 }
 
 .btn {
+	min-height: 64px;
+	border-radius: 10px;
+	border: 1px solid var(--main-color);
+	background-color: transparent;
+	font-weight: 500;
+	line-height: normal;
+	white-space: nowrap;
+	@include t {
+		min-height: 50px;
+	}
 }
 .btn-green {
+	background-color: var(--second-color);
+	border: 0;
 }
 .burger-btn {
 }

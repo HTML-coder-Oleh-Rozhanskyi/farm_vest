@@ -1,4 +1,4 @@
-/*
+
 function burger() {
 	const menuBtn = document.querySelector('.burger-btn');
 	const menuWrap = document.querySelector('.menu');
@@ -40,4 +40,4 @@ function burger() {
 	};
 };
 burger();
-*/
+

@@ -3,15 +3,11 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 100;
 	transition: background-color var(--transition);
 	&.header--scrolling {
 		background-color: var(--bg);
 	}
-	.body.menu-active & {
-		padding-right: 10px;
-	}
-	@media (max-width: 767.98px) {
+	@include m {
 		&::before {
 			content: "";
 			position: absolute;
@@ -20,6 +16,7 @@
 			background-color: var(--bg);
 			transform: translate(100%);
 			transition: transform var(--transition);
+			margin-right: 5px;
 		}
 		.menu-active &::before {
 			transform: translate(0);
@@ -31,22 +28,44 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		column-gap: 30px;
 		min-height: 180px;
+		padding-top: 5px;
+		@include t {
+			min-height: 140px;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			row-gap: 30px;
+		}
+		@include m {
+			min-height: 70px;
+		}
 	}
 	// .header__logo
 	&__logo {
+		position: relative;
+		z-index: 200;
+		flex-shrink: 0;
+		flex-basis: 146px;
+		@include m {
+			flex-basis: 120px;
+		}
 	}
 	// header__menu
 	&__menu,
 	.menu {
-		@media (max-width: 767.98px) {
+		@include t {
+			order: 1;
+			flex-basis: 100%;
+		}
+		@include m {
 			overflow-y: auto;
 			position: fixed;
 			inset: 0;
 			padding: 150px 0 30px;
 			transform: translateX(100%);
 			transition: transform 0.4s linear;
-			background-color: #000;
+			background-color: var(--bg);
 			&.menu-active {
 				transform: translateX(0);
 			}
@@ -54,27 +73,83 @@
 		// .menu__list
 		&__list {
 			display: flex;
-			@media (max-width: 767.98px) {
+			flex-wrap: wrap;
+			column-gap: 44px;
+			@include m {
 				flex-wrap: nowrap;
 				justify-content: flex-start;
 				align-items: center;
 				flex-direction: column;
+				margin-bottom: 40px;
+			}
+		}
+		// menu__item
+		&__item {
+			display: flex;
+			align-items: center;
+		}
+		// menu__link
+		&__link {
+			padding-block: 7px;
+			white-space: nowrap;
+			position: relative;
+			line-height: normal;
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 1px;
+				background-color: var(--main-color);
+				transform: scale(0);
+				transition: transform var(--transition);
+			}
+			&:hover::before {
+				@media (any-hover) {
+					transform: scale(1);
+				}
+			}
+			@include m {
+				font-size: 28px;
 			}
 		}
 	}
 	// .header__active
 	&__active {
+		display: flex;
+		column-gap: 16px;
+		position: relative;
+		z-index: 200;
+		@include m {
+			flex-grow: 1;
+			justify-content: flex-end;
+		}
+		@include sm {
+			display: none;
+		}
+	}
+	&__active--menu {
+		display: none;
+		@include sm {
+			display: flex;
+			justify-content: center;
+		}
 	}
 	// .header__btn
 	&__btn {
+		width: 142px;
+		@include m {
+			width: 120px;
+		}
 	}
 }
 
 .burger-btn {
 	display: none;
-	@media (max-width: 767.98px) {
+	@include m {
 		position: relative;
-		z-index: 5;
+		z-index: 200;
 		display: block;
 		width: 30px;
 		height: 20px;
