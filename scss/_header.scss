@@ -3,7 +3,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	transition: background-color var(--transition);
+	transition: background-color 0.2s;
 	&.header--scrolling {
 		background-color: var(--bg);
 	}
@@ -29,8 +29,12 @@
 		justify-content: space-between;
 		align-items: center;
 		column-gap: 30px;
-		min-height: clamp(90px, vw(180px), 180px);
+		min-height: clamp(70px, vw(180px), 180px);
 		padding-top: 5px;
+		transition: min-height var(--transition);
+		.header.header--scrolling & {
+			min-height: 70px;
+		}
 		@include t {
 			flex-wrap: wrap;
 			justify-content: space-between;

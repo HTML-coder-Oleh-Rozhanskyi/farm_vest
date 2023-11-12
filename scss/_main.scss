@@ -1,17 +1,13 @@
 .main {
 	// .main__banner
 	&__banner {
-		padding-top: clamp(150px, vw(250px), 250px);
+		padding-top: clamp(100px, vw(250px), 250px);
 		padding-bottom: clamp(50px, vw(100px), 100px);
 	}
 }
 .banner {
 	// .banner__container
 	&__container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		row-gap: clamp(30px, vw(209px), 209px);
 	}
 	// .banner__text-block
 	&__text-block {
@@ -19,6 +15,7 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
+		margin-bottom: clamp(30px, vw(209px), 209px);
 	}
 	// .banner__title
 	&__title {
@@ -41,6 +38,7 @@
 	// .banner__form
 	&__form {
 		position: relative;
+		z-index: -1;
 	}
 	// .banner__input
 	&__input {
@@ -77,20 +75,20 @@
 			top: calc(50% - clamp(18px, vwt(32px), 32px));
 		}
 	}
+	// .banner__swiper
+	&__swiper.swiper {
+		z-index: -1;
+	}
 	// .banner__list
-	&__list {
-		align-self: stretch;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-		justify-items: center;
+	&__list.swiper-wrapper {
 		align-items: center;
-		column-gap: 108px;
-		row-gap: 20px;
-		@include d {
-			column-gap: clamp(30px, vw(108px), 180px);
+		@media (min-width: 1461px) {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr);
+			column-gap: 108px;
 		}
 	}
 	// .banner__item
-	&__item {
+	&__item.swiper-slide {
 	}
 }

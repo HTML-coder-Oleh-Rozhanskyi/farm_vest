@@ -1,4 +1,4 @@
-/*
+
 window.addEventListener('DOMContentLoaded', () => {
 
 	const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
@@ -27,40 +27,33 @@ window.addEventListener('DOMContentLoaded', () => {
 		checker();
 	}
 
-	const someFunc = (instance) => {
-		if (instance) {
-			instance.on('slideChange', function (e) {
-				console.log('*** mySwiper.activeIndex', instance.activeIndex);
-			});
-		}
-	};
-
 	resizableSwiper(
-		'(max-width: 1280px)',
-		'.slider-1',
+		'(max-width: 1460px)',
+		'.banner__swiper',
 		{
 			loop: true,
-			spaceBetween: 32,
-			slidesPerView: 1,
-
-		},
-		// someFunc
-	);
-
-	resizableSwiper(
-		'(max-width: 1500px)',
-		'.slider-2',
-		{
-			loop: true,
-			spaceBetween: 10,
-			slidesPerView: 3,
-			freeMode: true,
+			autoplay: {
+				delay: 3000,
+				reverseDirection: true,
+			},
 			breakpoints: {
-				1200: {
-					spaceBetween: 20,
+				// when window width is >= 320px
+				320: {
+					slidesPerView: 2,
+					spaceBetween: 20
+				},
+				// when window width is >= 480px
+				424: {
+					slidesPerView: 3,
+					spaceBetween: 30
+				},
+				// when window width is >= 640px
+				768: {
+					slidesPerView: 4,
+					spaceBetween: 40
 				}
 			}
-		}
+		},
 	);
 });
-*/
+

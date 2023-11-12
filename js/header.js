@@ -1,11 +1,11 @@
-/*
+
 function header() {
 	const header = document.querySelector('.header');
 
 	window.addEventListener('scroll', () => {
 		let scrollDistance = window.scrollY;
 
-		if (scrollDistance > 90) {
+		if (scrollDistance > 71) {
 			header.classList.add('header--scrolling');
 		}
 		else {
@@ -24,5 +24,5 @@ function header() {
 	});
 };
 header();
-*/
+
 
