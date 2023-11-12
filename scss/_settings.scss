@@ -1,3 +1,10 @@
+$container: 1420px;
+
+@mixin xsm {
+	@media (max-width: 424.98px) {
+		@content;
+	}
+}
 @mixin sm {
 	@media (max-width: 574.98px) {
 		@content;
@@ -13,7 +20,11 @@
 		@content;
 	}
 }
-$container: 1420px;
+@mixin d {
+	@media (max-width: $container) {
+		@content;
+	}
+}
 
 :root {
 	--bg: #263238;
@@ -25,9 +36,14 @@ $container: 1420px;
 }
 
 @function vw($n) {
-	@return calc($n / $container * 170vw);
+	@return calc($n / $container * 100vw);
 }
-
+@function vwt($n) {
+	@return calc($n / 1023.98px * 100vw);
+}
+@function vwm($n) {
+	@return calc($n / 767.98px * 100vw);
+}
 html {
 	scroll-padding-top: 20px;
 }
@@ -39,12 +55,15 @@ html {
 	padding: 0;
 	border: 0;
 	font-family: var(--font);
-	font-size: clamp(14px, vw(18px), 18px);
+	font-size: 18px;
 	// font-size: calc(var(--index) * 1.5);
 	font-weight: 400;
-	line-height: 1.77;
+	line-height: 1.8;
 	color: var(--main-color);
 	background-color: var(--bg);
+	@include m {
+		font-size: clamp(16px, vwm(18px), 18px);
+	}
 	&.menu-active {
 		overflow-y: hidden;
 		padding-right: 10px;
@@ -54,6 +73,9 @@ html {
 	max-width: calc($container + 20px * 2);
 	margin: 0 auto;
 	padding-inline: 20px;
+	@include t {
+		padding-inline: 10px;
+	}
 }
 ::-webkit-scrollbar {
 	background-color: transparent;
@@ -93,12 +115,18 @@ html {
 	line-height: normal;
 	white-space: nowrap;
 	@include t {
-		min-height: 50px;
+		min-height: clamp(36px, vwt(64px), 64px);
 	}
 }
-.btn-green {
+.btn--green {
 	background-color: var(--second-color);
 	border: 0;
 }
-.burger-btn {
+.title {
+	font-size: 64px;
+	line-height: 1;
+	font-weight: 700;
+	&__span {
+		color: var(--second-color);
+	}
 }

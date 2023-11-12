@@ -7,7 +7,7 @@
 	&.header--scrolling {
 		background-color: var(--bg);
 	}
-	@include m {
+	@include t {
 		&::before {
 			content: "";
 			position: absolute;
@@ -24,21 +24,17 @@
 	}
 	// .header__container
 	&__container {
-		max-width: calc(1700px + 20px * 2);
+		max-width: calc(1620px + 20px * 2);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		column-gap: 30px;
-		min-height: 180px;
+		min-height: clamp(90px, vw(180px), 180px);
 		padding-top: 5px;
 		@include t {
-			min-height: 140px;
 			flex-wrap: wrap;
 			justify-content: space-between;
 			row-gap: 30px;
-		}
-		@include m {
-			min-height: 70px;
 		}
 	}
 	// .header__logo
@@ -47,18 +43,14 @@
 		z-index: 200;
 		flex-shrink: 0;
 		flex-basis: 146px;
-		@include m {
-			flex-basis: 120px;
+		@include t {
+			flex-basis: clamp(100px, vwt(146px), 146px);
 		}
 	}
 	// header__menu
 	&__menu,
 	.menu {
 		@include t {
-			order: 1;
-			flex-basis: 100%;
-		}
-		@include m {
 			overflow-y: auto;
 			position: fixed;
 			inset: 0;
@@ -75,7 +67,8 @@
 			display: flex;
 			flex-wrap: wrap;
 			column-gap: 44px;
-			@include m {
+			row-gap: 30px;
+			@include t {
 				flex-wrap: nowrap;
 				justify-content: flex-start;
 				align-items: center;
@@ -93,7 +86,7 @@
 			padding-block: 7px;
 			white-space: nowrap;
 			position: relative;
-			line-height: normal;
+			line-height: 1;
 			&::before {
 				content: "";
 				position: absolute;
@@ -110,7 +103,7 @@
 					transform: scale(1);
 				}
 			}
-			@include m {
+			@include t {
 				font-size: 28px;
 			}
 		}
@@ -121,7 +114,7 @@
 		column-gap: 16px;
 		position: relative;
 		z-index: 200;
-		@include m {
+		@include t {
 			flex-grow: 1;
 			justify-content: flex-end;
 		}
@@ -140,14 +133,14 @@
 	&__btn {
 		width: 142px;
 		@include m {
-			width: 120px;
+			width: clamp(120px, vwm(142px), 142px);
 		}
 	}
 }
 
 .burger-btn {
 	display: none;
-	@include m {
+	@include t {
 		position: relative;
 		z-index: 200;
 		display: block;
