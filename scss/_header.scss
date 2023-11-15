@@ -3,6 +3,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
+	z-index: 100;
 	transition: background-color 0.2s;
 	&.header--scrolling {
 		background-color: var(--bg);
@@ -26,7 +27,6 @@
 	&__container {
 		max-width: calc(1620px + 20px * 2);
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
 		column-gap: 30px;
 		min-height: clamp(70px, vw(180px), 180px);
@@ -54,9 +54,11 @@
 	// header__menu
 	&__menu,
 	.menu {
+		flex-grow: 1;
 		@include t {
 			overflow-y: auto;
 			position: fixed;
+			z-index: 150;
 			inset: 0;
 			padding: 150px 0 30px;
 			transform: translateX(100%);
@@ -72,6 +74,11 @@
 			flex-wrap: wrap;
 			column-gap: 44px;
 			row-gap: 30px;
+			margin-left: 463px;
+			@media (max-width: 1660px) {
+				justify-content: center;
+				margin-left: 0;
+			}
 			@include t {
 				flex-wrap: nowrap;
 				justify-content: flex-start;

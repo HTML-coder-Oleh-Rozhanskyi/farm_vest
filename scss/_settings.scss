@@ -69,6 +69,9 @@ html {
 		padding-right: 10px;
 	}
 }
+.wrapper {
+	position: relative;
+}
 [class*="__container"] {
 	max-width: calc($container + 20px * 2);
 	margin: 0 auto;
@@ -126,7 +129,18 @@ html {
 	font-size: 64px;
 	line-height: 1;
 	font-weight: 700;
+	&:not(:last-child) {
+		margin-bottom: 32px;
+	}
+	@include d {
+		font-size: clamp(30px, vw(64px), 64px);
+	}
 	&__span {
 		color: var(--second-color);
+	}
+}
+.text {
+	&:not(:last-child) {
+		margin-bottom: 48px;
 	}
 }
