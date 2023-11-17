@@ -5,10 +5,12 @@
 		padding-bottom: clamp(50px, vw(100px), 100px);
 	}
 	// .main__how
-	&__how {
+	&__how,
+	&__pathway {
 		padding-block: clamp(50px, vw(100px), 100px);
 	}
 }
+
 .banner {
 	// .banner__container
 	&__container {
@@ -141,6 +143,7 @@
 	&__tabler {
 	}
 }
+
 .how {
 	// .how__container
 	&__container {
@@ -150,6 +153,7 @@
 		column-gap: 20px;
 		@include t {
 			grid-template-columns: 1fr;
+			justify-items: center;
 			row-gap: 30px;
 		}
 	}
@@ -159,9 +163,6 @@
 			display: grid;
 			text-align: center;
 		}
-	}
-	// .how__title
-	&__title {
 	}
 	// .how__list
 	&__list {
@@ -252,28 +253,88 @@
 			background-image: url(../img/svg/how/dollar.svg);
 		}
 	}
-	// .how__img
-	&__img {
-		padding: 6%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: 20px;
-		background: rgba(255, 255, 255, 0.05);
+}
+.pathway {
+	// .pathway__container
+	&__container {
+		display: grid;
+		grid-template-columns: 52.81% 40.42%;
+		justify-content: space-between;
+		align-items: stretch;
+		column-gap: 20px;
 		@include t {
-			max-width: 70%;
-			justify-self: center;
-		}
-		@include m {
-			max-width: 85%;
-			justify-self: center;
-		}
-		@include sm {
-			max-width: 100%;
-			justify-self: center;
-		}
-		img {
-			border-radius: 20px;
+			grid-template-columns: 1fr;
+			justify-items: center;
+			row-gap: 30px;
 		}
 	}
+	// .pathway__img
+	&__img {
+		@include t {
+			order: 2;
+		}
+	}
+	// .pathway__text-block
+	&__text-block {
+		@include t {
+			order: 1;
+		}
+	}
+	// .pathway__title
+	&__title {
+	}
+	// .pathway__text
+	&__text {
+	}
+	// .pathway__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: 24px;
+	}
+	// .pathway__accordion
+	&__accordion,
+	.accordion {
+		// .accordion__btn
+		&__btn {
+			position: relative;
+			text-align: left;
+			width: 100%;
+			font-size: 24px;
+			border: 0;
+			border-radius: 10px;
+			padding: 24px 65px 24px 30px;
+			background: rgba(255, 255, 255, 0.05);
+			&::before {
+				content: "";
+				position: absolute;
+				top: calc(50% - 15px);
+				right: 30px;
+				width: 24px;
+				height: 24px;
+				background: url(../img/svg/ico/arrow.svg) no-repeat;
+				transform: rotate(-90deg);
+				transition: all var(--transition);
+			}
+		}
+		// .accordion__content
+		&__content {
+			border-radius: 10px;
+			padding: 0;
+			max-height: 0;
+			visibility: hidden;
+			opacity: 0;
+			transition: all var(--transition);
+		}
+	}
+}
+.accordion--active .accordion__content {
+	visibility: visible;
+	opacity: 1;
+	padding: 24px 30px;
+	overflow-y: auto;
+}
+.accordion--active .accordion__btn::before {
+	top: calc(50% - 12px);
+	transform: rotate(0);
 }

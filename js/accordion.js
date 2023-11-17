@@ -1,4 +1,4 @@
-/*document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 	const accordion = document.querySelectorAll('.accordion');
 	accordion.forEach(el => {
 		el.addEventListener('click', (e) => {
@@ -18,4 +18,3 @@
 		});
 	});
 });
-*/

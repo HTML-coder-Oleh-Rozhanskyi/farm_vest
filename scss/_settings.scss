@@ -144,3 +144,26 @@ html {
 		margin-bottom: 48px;
 	}
 }
+.img-block {
+	display: flex;
+	align-items: center;
+	padding: 6%;
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.05);
+	@include t {
+		max-width: 70%;
+	}
+	@include m {
+		max-width: 85%;
+	}
+	@include sm {
+		max-width: 100%;
+	}
+	img {
+		border-radius: 20px;
+		object-fit: cover;
+		@include t {
+			height: clamp(300px, 46.47vw, 604px);
+		}
+	}
+}
