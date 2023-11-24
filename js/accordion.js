@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (self.classList.contains('accordion--active')) {
 				control.setAttribute('aria-expanded', true);
 				content.setAttribute('aria-hidden', false);
-				content.style.maxHeight = content.scrollHeight + 'px';
+				content.style.maxHeight = content.scrollHeight * 1.8 + 'px';
 			} else {
 				control.setAttribute('aria-expanded', false);
 				content.setAttribute('aria-hidden', true);

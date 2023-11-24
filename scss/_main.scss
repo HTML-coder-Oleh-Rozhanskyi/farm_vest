@@ -51,10 +51,12 @@
 		width: 533px;
 		min-height: 76px;
 		padding-left: 25px;
+		padding-right: 183px;
 		border-radius: 10px;
 		border: 1px solid var(--main-color);
 		background: var(--main-color);
 		font-size: 18px;
+
 		&::placeholder {
 			color: var(--bg);
 			font-size: 18px;
@@ -62,10 +64,12 @@
 			line-height: 1;
 		}
 		@include t {
-			width: clamp(300px, vwt(533px), 533px);
-			min-height: clamp(48px, vwt(76px), 76px);
+			width: clamp(350px, vwt(533px), 533px);
+			min-height: clamp(52px, vwt(76px), 76px);
+			padding-right: clamp(140px, vwt(183px), 183px);
 		}
 		@include sm {
+			transition: width 0.2s linear;
 			width: 80vw;
 		}
 		@include xsm {
@@ -77,8 +81,10 @@
 		position: absolute;
 		top: calc(50% - 32px);
 		right: 6px;
+		width: 163px;
 		@include t {
 			top: calc(50% - clamp(18px, vwt(32px), 32px));
+			width: clamp(120px, vwt(163px), 163px);
 		}
 	}
 	// .banner__swiper
@@ -278,13 +284,8 @@
 	&__text-block {
 		@include t {
 			order: 1;
+			text-align: center;
 		}
-	}
-	// .pathway__title
-	&__title {
-	}
-	// .pathway__text
-	&__text {
 	}
 	// .pathway__list
 	&__list {
@@ -295,44 +296,62 @@
 	// .pathway__accordion
 	&__accordion,
 	.accordion {
+		position: relative;
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 10px;
+		transition: max-width var(--transitionLong);
+		@include t {
+			max-width: 70%;
+			margin: 0 auto;
+			font-size: clamp(18px, vwt(24px), 24px);
+		}
+		@include m {
+			max-width: 85%;
+		}
+		@include sm {
+			max-width: 100%;
+		}
 		// .accordion__btn
 		&__btn {
 			position: relative;
-			text-align: left;
 			width: 100%;
 			font-size: 24px;
 			border: 0;
-			border-radius: 10px;
 			padding: 24px 65px 24px 30px;
-			background: rgba(255, 255, 255, 0.05);
+			background: 0;
+			text-align: left;
+			transition: max-width var(--transitionLong);
+			line-height: 1.2;
 			&::before {
 				content: "";
 				position: absolute;
 				top: calc(50% - 15px);
 				right: 30px;
 				width: 24px;
-				height: 24px;
+				aspect-ratio: 1;
 				background: url(../img/svg/ico/arrow.svg) no-repeat;
 				transform: rotate(-90deg);
-				transition: all var(--transition);
+				transition: transform var(--transition);
 			}
 		}
 		// .accordion__content
 		&__content {
-			border-radius: 10px;
-			padding: 0;
-			max-height: 0;
-			visibility: hidden;
+			transition: all var(--transitionLong);
 			opacity: 0;
-			transition: all var(--transition);
+			overflow: hidden;
+			max-height: 0;
+			will-change: max-height;
+			padding-inline: 30px;
+			text-align: left;
 		}
 	}
 }
+.accordion--active .accordion__btn {
+	top: calc(50% - 15px);
+}
 .accordion--active .accordion__content {
-	visibility: visible;
 	opacity: 1;
-	padding: 24px 30px;
-	overflow-y: auto;
+	padding-bottom: 24px;
 }
 .accordion--active .accordion__btn::before {
 	top: calc(50% - 12px);

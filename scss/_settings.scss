@@ -30,7 +30,8 @@ $container: 1420px;
 	--bg: #263238;
 	--main-color: #fff;
 	--second-color: #23b123;
-	--transition: 0.3s;
+	--transition: 0.3s linear;
+	--transitionLong: 0.5s linear;
 	--index: calc(1vw + 1vh);
 	--font: "Spartan", "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -69,6 +70,8 @@ html {
 		padding-right: 10px;
 	}
 }
+/* запобігти скачку контента при появі полоси прокрутки
+.body { padding: 0 calc(20px - (100vw - 100%)) 0 0; }*/
 .wrapper {
 	position: relative;
 }
@@ -150,6 +153,7 @@ html {
 	padding: 6%;
 	border-radius: 20px;
 	background: rgba(255, 255, 255, 0.05);
+	transition: max-width var(--transitionLong);
 	@include t {
 		max-width: 70%;
 	}

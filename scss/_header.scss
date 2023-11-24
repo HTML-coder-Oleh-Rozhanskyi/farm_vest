@@ -49,6 +49,9 @@
 		flex-basis: 146px;
 		@include t {
 			flex-basis: clamp(100px, vwt(146px), 146px);
+			img {
+				height: clamp(30px, vwt(43px), 43px);
+			}
 		}
 	}
 	// header__menu
