@@ -55,5 +55,44 @@ window.addEventListener('DOMContentLoaded', () => {
 			}
 		},
 	);
+	resizableSwiper(
+		'(min-width: 10px)',
+		'.what__swiper',
+		{
+			enabled: true,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			centeredSlides: true,
+			slidesPerView: 1.2,
+			spaceBetween: 10,
+			slideToClickedSlide: true,
+			breakpoints: {
+				475: {
+					slidesPerView: 1.3,
+					spaceBetween: 20,
+				},
+				475: {
+					slidesPerView: 1.5,
+					spaceBetween: 20,
+				},
+				625: {
+					slidesPerView: 1.8,
+					spaceBetween: 20,
+				},
+				767: {
+					slidesPerView: 2.2,
+					spaceBetween: 30,
+
+				},
+				1023: {
+					slidesPerView: 2,
+					spaceBetween: 48,
+					centeredSlides: false,
+				}
+			}
+		},
+	);
 });
 

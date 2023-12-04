@@ -28,6 +28,7 @@ $container: 1420px;
 
 :root {
 	--bg: #263238;
+	--bgContent: rgba(255, 255, 255, 0.05);
 	--main-color: #fff;
 	--second-color: #23b123;
 	--transition: 0.3s linear;
@@ -113,6 +114,9 @@ html {
 }
 
 .btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 	min-height: 64px;
 	border-radius: 10px;
 	border: 1px solid var(--main-color);
@@ -121,7 +125,7 @@ html {
 	line-height: normal;
 	white-space: nowrap;
 	@include t {
-		min-height: clamp(36px, vwt(64px), 64px);
+		min-height: clamp(40px, vwt(64px), 64px);
 	}
 }
 .btn--green {
@@ -145,6 +149,9 @@ html {
 .text {
 	&:not(:last-child) {
 		margin-bottom: 48px;
+		@include t {
+			margin-bottom: clamp(20px, vwt(48px), 48px);
+		}
 	}
 }
 .img-block {
@@ -152,7 +159,7 @@ html {
 	align-items: center;
 	padding: 6%;
 	border-radius: 20px;
-	background: rgba(255, 255, 255, 0.05);
+	background: var(--bgContent);
 	transition: max-width var(--transitionLong);
 	@include t {
 		max-width: 70%;

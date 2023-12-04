@@ -29,11 +29,11 @@
 		display: flex;
 		align-items: center;
 		column-gap: 30px;
-		min-height: clamp(70px, vw(180px), 180px);
+		min-height: clamp(90px, vw(180px), 180px);
 		padding-top: 5px;
 		transition: min-height var(--transition);
 		.header.header--scrolling & {
-			min-height: 70px;
+			min-height: 90px;
 		}
 		@include t {
 			flex-wrap: wrap;
