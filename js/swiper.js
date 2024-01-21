@@ -69,21 +69,24 @@ window.addEventListener('DOMContentLoaded', () => {
 			spaceBetween: 10,
 			slideToClickedSlide: true,
 			breakpoints: {
+				320: {
+					slidesPerView: 1.4,
+				},
 				475: {
-					slidesPerView: 1.3,
+					slidesPerView: 1.6,
 					spaceBetween: 20,
 				},
 				475: {
-					slidesPerView: 1.5,
-					spaceBetween: 20,
-				},
-				625: {
 					slidesPerView: 1.8,
 					spaceBetween: 20,
 				},
+				625: {
+					slidesPerView: 2.1,
+					spaceBetween: 28,
+				},
 				767: {
 					slidesPerView: 2.2,
-					spaceBetween: 30,
+					spaceBetween: 38,
 
 				},
 				1023: {

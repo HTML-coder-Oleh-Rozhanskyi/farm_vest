@@ -68,7 +68,6 @@ html {
 	}
 	&.menu-active {
 		overflow-y: hidden;
-		padding-right: 10px;
 	}
 }
 /* запобігти скачку контента при появі полоси прокрутки
@@ -87,7 +86,7 @@ html {
 ::-webkit-scrollbar {
 	background-color: transparent;
 	width: 10px;
-	@media (max-width: 767.98px) {
+	@include m {
 		width: 5px;
 	}
 }
@@ -124,8 +123,8 @@ html {
 	font-weight: 500;
 	line-height: normal;
 	white-space: nowrap;
-	@include t {
-		min-height: clamp(40px, vwt(64px), 64px);
+	@include d {
+		min-height: clamp(50px, vw(64px), 64px);
 	}
 }
 .btn--green {
