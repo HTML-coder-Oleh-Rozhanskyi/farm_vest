@@ -85,9 +85,9 @@ html {
 }
 ::-webkit-scrollbar {
 	background-color: transparent;
-	width: 10px;
+	width: 7px;
 	@include m {
-		width: 5px;
+		width: 4px;
 	}
 }
 ::-webkit-scrollbar-thumb {

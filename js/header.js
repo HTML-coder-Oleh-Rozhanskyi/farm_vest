@@ -5,7 +5,7 @@ function header() {
 	window.addEventListener('scroll', () => {
 		let scrollDistance = window.scrollY;
 
-		if (scrollDistance > 71) {
+		if (scrollDistance > 45) {
 			header.classList.add('header--scrolling');
 		}
 		else {

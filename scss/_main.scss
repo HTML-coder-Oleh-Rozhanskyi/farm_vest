@@ -321,13 +321,20 @@
 			&::before {
 				content: "";
 				position: absolute;
-				top: calc(50% - 15px);
+				top: calc(50% - 12px);
 				right: 30px;
 				width: 24px;
 				aspect-ratio: 1/1;
-				background: url(../img/svg/ico/arrow.svg) no-repeat;
+				background: url(../img/svg/ico/arrow.svg) 50% no-repeat;
 				transform: rotate(-90deg);
 				transition: transform var(--transition);
+				@include t {
+					right: 15px;
+				}
+			}
+			@include t {
+				padding: 15px;
+				padding-right: 40px;
 			}
 		}
 		// .accordion__content
@@ -339,6 +346,9 @@
 			will-change: max-height;
 			padding-inline: 30px;
 			text-align: left;
+			@include t {
+				padding-inline: 15px;
+			}
 		}
 	}
 }
@@ -491,9 +501,8 @@
 			border-radius: 20px;
 			background-color: var(--bgContent);
 			display: flex;
-			align-items: center;
-			height: auto;
 			overflow: hidden;
+			height: auto;
 			@include t {
 				flex-direction: column;
 				row-gap: clamp(15px, vwt(30px), 30px);
@@ -511,30 +520,28 @@
 				width: 100%;
 				object-fit: cover;
 				border-radius: 20px 0 0 20px;
-				@include d {
-					max-height: clamp(250px, vw(377px), 377px);
-				}
 				@include t {
+					max-height: clamp(200px, vwt(300px), 300px);
 					border-radius: 20px 20px 0 0;
 				}
 			}
+		}
+		// .swiper__body
+		&__body {
+			padding-block: clamp(15px, vw(32px), 32px);
 		}
 		// .swiper__text-block
 		&__text-block {
 			flex: 1 1 46%;
 			display: flex;
 			flex-direction: column;
-			padding: 32px;
-			overflow: auto;
-			max-height: 377px;
+			overflow-y: auto;
 			box-sizing: border-box;
-			@include d {
-				max-height: clamp(250px, vw(377px), 377px);
-			}
+			padding: clamp(15px, vw(32px), 32px);
+			max-height: 377px;
 			@include t {
-				padding: clamp(15px, vwt(32px), 32px);
-			}
-			@include sm {
+				flex-basis: auto;
+				max-height: clamp(200px, vwt(250px), 250px);
 				padding-top: 0;
 			}
 		}
@@ -543,18 +550,16 @@
 			flex-grow: 1;
 			margin-bottom: 15px;
 		}
-		// .swiper__title
-		&__title {
-		}
+
 		// .swiper__button
 		&__button {
 			top: 100%;
 			margin-top: 0;
-			width: 80px;
-			height: 80px;
+			width: 50px;
+			height: 50px;
 			border-radius: 50%;
 			background:
-				url(../img/svg/ico/arrow.svg) 50%/50px no-repeat,
+				url(../img/svg/ico/arrow.svg) 50%/30px no-repeat,
 				var(--bgContent);
 			&::after {
 				display: none;

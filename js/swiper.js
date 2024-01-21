@@ -72,22 +72,16 @@ window.addEventListener('DOMContentLoaded', () => {
 				320: {
 					slidesPerView: 1.4,
 				},
-				475: {
-					slidesPerView: 1.6,
-					spaceBetween: 20,
+				385: {
+					slidesPerView: 1.8,
 				},
 				475: {
-					slidesPerView: 1.8,
+					slidesPerView: 2.2,
 					spaceBetween: 20,
 				},
 				625: {
-					slidesPerView: 2.1,
+					slidesPerView: 2.5,
 					spaceBetween: 28,
-				},
-				767: {
-					slidesPerView: 2.2,
-					spaceBetween: 38,
-
 				},
 				1023: {
 					slidesPerView: 2,
