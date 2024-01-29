@@ -99,6 +99,12 @@ html {
 	scrollbar-color: var(--main-color) transporent;
 	scrollbar-width: thin;
 }
+svg *[fill] {
+	fill: currentColor;
+}
+svg *[stroke] {
+	stroke: currentColor;
+}
 .visually-hidden {
 	position: absolute !important;
 	width: 1px !important;
@@ -123,6 +129,24 @@ html {
 	font-weight: 500;
 	line-height: normal;
 	white-space: nowrap;
+	cursor: pointer;
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 30%;
+		left: 10%;
+		width: 80%;
+		height: 1px;
+		background-color: var(--main-color);
+		transform: scale(0);
+		transition: transform var(--transition);
+	}
+	&:hover::before {
+		@media (any-hover) {
+			transform: scale(1);
+		}
+	}
 	@include d {
 		min-height: clamp(50px, vw(64px), 64px);
 	}
