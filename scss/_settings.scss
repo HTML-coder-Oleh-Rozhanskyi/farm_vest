@@ -68,6 +68,10 @@ html {
 	}
 	&.menu-active {
 		overflow-y: hidden;
+
+		@include t {
+			padding-right: 4px;
+		}
 	}
 }
 /* запобігти скачку контента при появі полоси прокрутки
