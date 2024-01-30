@@ -234,7 +234,7 @@
 	// .pathway__container
 	&__container {
 		display: grid;
-		grid-template-columns: 52.81% 40.42%;
+		grid-template-columns: 48.87% 40.42%;
 		justify-content: space-between;
 		align-items: stretch;
 		column-gap: 20px;
@@ -356,6 +356,11 @@
 			width: 100%;
 			text-align: center;
 		}
+		@include sm {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 	}
 	// .why__list
 	&__list {
@@ -375,11 +380,12 @@
 		}
 		@include m {
 			max-width: 85%;
-			grid-template-columns: 1fr;
 			margin: 0 auto 30px;
 		}
 		@include sm {
 			max-width: 100%;
+			display: flex;
+			flex-direction: column;
 		}
 	}
 	// .why__item-list
