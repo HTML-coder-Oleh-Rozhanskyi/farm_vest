@@ -47,10 +47,10 @@
 	}
 	// .banner__input
 	&__input {
-		width: 533px;
-		min-height: 76px;
+		width: clamp(350px, vwt(533px), 533px);
+		min-height: clamp(60px, vwt(76px), 76px);
 		padding-left: 25px;
-		padding-right: 183px;
+		padding-right: clamp(140px, vwt(183px), 183px);
 		border-radius: 10px;
 		border: 1px solid var(--main-color);
 		background: var(--main-color);
@@ -59,11 +59,6 @@
 		line-height: 1;
 		&::placeholder {
 			color: var(--bg);
-		}
-		@include t {
-			width: clamp(350px, vwt(533px), 533px);
-			min-height: clamp(60px, vwt(76px), 76px);
-			padding-right: clamp(140px, vwt(183px), 183px);
 		}
 		@include sm {
 			transition: width 0.2s linear;
@@ -124,29 +119,6 @@
 		width: 585px;
 		height: 585px;
 	}
-	/*
-	// .banner__ellipse-S
-	&__ellipse-S {
-	}
-	// .banner__ellipse-S-bg
-	&__ellipse-S-bg {
-	}
-	// .banner__dollar
-	&__dollar {
-	}
-	// .banner__star
-	&__star {
-	}
-	// .banner__star-bg
-	&__star-bg {
-	}
-	// .banner__baп
-	&__baп {
-	}
-	// .banner__tabler
-	&__tabler {
-	}
-	*/
 }
 .how {
 	// .how__container
@@ -392,6 +364,9 @@
 		margin-bottom: 48px;
 		transition: max-width var(--transitionLong);
 		@include t {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 30px;
 			max-width: 70%;
 			margin: 0 auto;
 			margin-bottom: clamp(30px, vwt(48px), 48px);
@@ -400,6 +375,8 @@
 		}
 		@include m {
 			max-width: 85%;
+			grid-template-columns: 1fr;
+			margin: 0 auto 30px;
 		}
 		@include sm {
 			max-width: 100%;
@@ -414,11 +391,9 @@
 		display: flex;
 		align-items: center;
 		text-align: left;
-		&:not(:last-child) {
-			margin-bottom: 48px;
-			@include t {
-				margin-bottom: clamp(30px, vwt(48px), 48px);
-			}
+		margin-bottom: clamp(30px, vw(48px), 48px);
+		@include t {
+			margin-bottom: 0;
 		}
 		&::before {
 			counter-increment: myCounter;
